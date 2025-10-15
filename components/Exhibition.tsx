@@ -37,6 +37,15 @@ const Exhibition = memo(function Exhibition() {
       locationKo: 'SJ쿤스트할레 (서울 강남구 언주로148길 5)',
       locationEn: 'SJ Kunsthalle (148-gil 5, Eonju-ro, Gangnam-gu, Seoul)',
     },
+    {
+      id: 4,
+      isComingSoon: true,
+      titleKo: 'COMING SOON',
+      titleEn: 'COMING SOON',
+      date: 'TBD',
+      locationKo: '공개 예정',
+      locationEn: 'To Be Announced',
+    },
   ], []);
 
   return (
@@ -100,24 +109,55 @@ const Exhibition = memo(function Exhibition() {
             ))}
           </div>
 
-          {/* 두 번째 줄: 더어울림 (중앙) */}
-          <div className="flex justify-center">
+          {/* 두 번째 줄: 더어울림 + Coming Soon */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
             {exhibitions.slice(2).map((exhibition) => (
               <div
                 key={exhibition.id}
-                className="cosmic-card overflow-hidden group w-full md:w-1/2"
+                className="cosmic-card overflow-hidden group w-full flex flex-col"
               >
-                {/* 이미지 */}
-                <div className="relative w-full bg-black">
-                  <Image
-                    src={exhibition.image}
-                    alt={language === 'ko' ? exhibition.titleKo : exhibition.titleEn}
-                    width={1920}
-                    height={1080}
-                    loading="lazy"
-                    sizes="(max-width: 768px) 100vw, 50vw"
-                    className="w-full h-auto object-contain transition-transform duration-500 group-hover:scale-105"
-                  />
+                {/* 이미지 또는 Coming Soon 플레이스홀더 */}
+                <div className={`relative w-full h-[400px] flex items-center justify-center ${
+                  exhibition.isComingSoon
+                    ? 'bg-gradient-to-br from-black via-gray-900 to-black'
+                    : 'bg-black'
+                }`}>
+                  {exhibition.isComingSoon ? (
+                    // Coming Soon 박스
+                    <div className="relative w-full h-full flex flex-col items-center justify-center">
+                      {/* 신비로운 배경 효과 */}
+                      <div className="absolute inset-0 opacity-20">
+                        <div className="absolute top-1/4 left-1/4 w-32 h-32 bg-green-500/30 rounded-full blur-3xl"></div>
+                        <div className="absolute bottom-1/4 right-1/4 w-40 h-40 bg-purple-600/20 rounded-full blur-3xl"></div>
+                      </div>
+
+                      {/* 물음표 아이콘 */}
+                      <div className="relative mb-6">
+                        <div className="text-8xl font-black text-green-400/20 group-hover:text-green-400/40 transition-colors">
+                          ?
+                        </div>
+                      </div>
+
+                      {/* Coming Soon 텍스트 */}
+                      <h3 className="text-4xl font-black text-white mb-4 tracking-tight group-hover:text-green-400 transition-colors">
+                        COMING SOON
+                      </h3>
+
+                      {/* 장식선 */}
+                      <div className="w-24 h-0.5 bg-gradient-to-r from-transparent via-green-500 to-transparent"></div>
+                    </div>
+                  ) : (
+                    // 일반 전시 이미지
+                    <Image
+                      src={exhibition.image}
+                      alt={language === 'ko' ? exhibition.titleKo : exhibition.titleEn}
+                      width={400}
+                      height={300}
+                      loading="lazy"
+                      sizes="(max-width: 768px) 100vw, 400px"
+                      className="w-full h-full object-contain transition-transform duration-500 group-hover:scale-105"
+                    />
+                  )}
                 </div>
 
                 {/* 정보 */}
@@ -126,7 +166,9 @@ const Exhibition = memo(function Exhibition() {
                     {language === 'ko' ? exhibition.titleKo : exhibition.titleEn}
                   </h3>
                   <div className="flex items-center gap-2 mb-3">
-                    <span className="text-sm text-green-400 font-black">
+                    <span className={`text-sm font-black ${
+                      exhibition.isComingSoon ? 'text-gray-500' : 'text-green-400'
+                    }`}>
                       {exhibition.date}
                     </span>
                   </div>
