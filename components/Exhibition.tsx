@@ -66,15 +66,17 @@ const Exhibition = memo(function Exhibition() {
               >
                 {/* 이미지 */}
                 <div className="relative w-full bg-black h-[400px] flex items-center justify-center">
-                  <Image
-                    src={exhibition.image}
-                    alt={language === 'ko' ? exhibition.titleKo : exhibition.titleEn}
-                    width={400}
-                    height={300}
-                    loading="lazy"
-                    sizes="(max-width: 768px) 100vw, 400px"
-                    className="w-full h-full object-contain transition-transform duration-500 group-hover:scale-105"
-                  />
+                  {exhibition.image && (
+                    <Image
+                      src={exhibition.image}
+                      alt={language === 'ko' ? exhibition.titleKo : exhibition.titleEn}
+                      width={400}
+                      height={300}
+                      loading="lazy"
+                      sizes="(max-width: 768px) 100vw, 400px"
+                      className="w-full h-full object-contain transition-transform duration-500 group-hover:scale-105"
+                    />
+                  )}
                 </div>
 
                 {/* 정보 */}
@@ -146,7 +148,7 @@ const Exhibition = memo(function Exhibition() {
                       {/* 장식선 */}
                       <div className="w-24 h-0.5 bg-gradient-to-r from-transparent via-green-500 to-transparent"></div>
                     </div>
-                  ) : (
+                  ) : exhibition.image ? (
                     // 일반 전시 이미지
                     <Image
                       src={exhibition.image}
@@ -157,7 +159,7 @@ const Exhibition = memo(function Exhibition() {
                       sizes="(max-width: 768px) 100vw, 400px"
                       className="w-full h-full object-contain transition-transform duration-500 group-hover:scale-105"
                     />
-                  )}
+                  ) : null}
                 </div>
 
                 {/* 정보 */}
