@@ -84,7 +84,7 @@ export default function ProjectInfo() {
           <div className="text-center p-8 bg-black border-2 border-green-500/20">
             <h4 className="text-2xl font-black text-green-400 mb-2 tracking-tight">RESULT</h4>
             <p className="text-xs text-gray-500 uppercase tracking-widest">
-              {language === 'ko' ? '8가지 타로 결과' : '8 Tarot Card Results'}
+              {language === 'ko' ? '8가지 결과 카드' : '8 Result Cards'}
             </p>
           </div>
         </div>
