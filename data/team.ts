@@ -55,7 +55,7 @@ export const teamMembers: TeamMember[] = [
     nameEn: 'Kim Chan Joo',
     role: '테크 엔지니어',
     roleEn: 'Tech Engineer',
-    skills: ['Music & Sound', 'Web Development', 'Audio Engineering'],
+    skills: ['Music & Sound', 'Web & AI Development', 'Audio Engineering'],
     description: '사운드 디자인과 웹 개발을 담당합니다.',
     descriptionEn: 'Responsible for sound design and web development.',
     portfolio: []
