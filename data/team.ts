@@ -58,7 +58,39 @@ export const teamMembers: TeamMember[] = [
     skills: ['Music & Sound', 'Web & AI Development', 'Audio Engineering'],
     description: '사운드 디자인과 웹 개발을 담당합니다.',
     descriptionEn: 'Responsible for sound design and web development.',
-    portfolio: []
+    image: '/images/chanjoo.jpeg',
+    portfolio: [
+      {
+        title: '현대 AI 리더십 코칭',
+        description: '10개 핵심 가치 기반 AI 리더십 진단 및 맞춤형 코칭 시스템 (Next.js, OpenAI)',
+        link: 'https://dazzlar.dev/dev'
+      },
+      {
+        title: '9e 엔터테인먼트',
+        description: 'K-POP 그룹 전문 엔터테인먼트 공식 웹사이트 (아티스트 관리 플랫폼)',
+        link: 'https://dazzlar.dev/dev'
+      },
+      {
+        title: 'Godai - 신과의 대화',
+        description: 'Three.js 3D & MediaPipe AI 기반 인터랙티브 운명 상담 플랫폼',
+        link: 'https://dazzlar.dev/dev'
+      },
+      {
+        title: 'K-POP Music Production',
+        description: 'X:IN, 달샤벳, 레이디스코드 등 다수 아티스트 믹싱/마스터링 (NT Studio 총괄)',
+        link: ''
+      },
+      {
+        title: 'Game Sound Design',
+        description: '하이큐, 모죠의 일지, SECOND WAVE 등 모바일/PC 게임 사운드 제작',
+        link: ''
+      },
+      {
+        title: 'Artist - Dazzlar',
+        description: '아티스트 활동 (2019~) - 3개 EP 앨범 발매 및 다수 피처링/프로듀싱',
+        link: ''
+      }
+    ]
   }
 ];
 

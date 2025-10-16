@@ -8,6 +8,7 @@ import MemberCard from '@/components/MemberCard';
 import Exhibition from '@/components/Exhibition';
 import LanguageToggle from '@/components/LanguageToggle';
 import FloatingContact from '@/components/FloatingContact';
+import SectionNav from '@/components/SectionNav';
 import { teamMembers } from '@/data/team';
 
 export default function Home() {
@@ -19,26 +20,41 @@ export default function Home() {
       {/* Floating Contact Button */}
       <FloatingContact />
 
+      {/* Section Navigation */}
+      <SectionNav />
+
       {/* Hero Section */}
-      <Hero />
+      <div id="hero">
+        <Hero />
+      </div>
 
       {/* Project Info Section */}
-      <ProjectInfo />
+      <div id="project">
+        <ProjectInfo />
+      </div>
 
       {/* Scene Gallery Section */}
-      <SceneGallery />
+      <div id="gallery">
+        <SceneGallery />
+      </div>
 
       {/* RoadMap Section */}
-      <RoadMap />
+      <div id="roadmap">
+        <RoadMap />
+      </div>
 
       {/* Team Intro Section */}
-      <TeamIntro />
+      <div id="team-intro">
+        <TeamIntro />
+      </div>
 
       {/* Exhibition Section */}
-      <Exhibition />
+      <div id="exhibition">
+        <Exhibition />
+      </div>
 
       {/* Team Members Grid */}
-      <section className="py-20 px-4">
+      <section id="members" className="py-20 px-4">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-5xl md:text-6xl font-black text-center mb-2">
             <span className="text-white">TEAM</span>
@@ -123,6 +139,10 @@ export default function Home() {
               NEW CONTENTS ACADEMY - VIRTUAL VISUALIZATION MODULE
             </p>
             <div className="h-px w-32 bg-white/10 mx-auto mb-6"></div>
+            <p className="text-xs text-gray-600 mb-2 tracking-wider">
+              CONTACT : <a href="mailto:team.tarotaros@gmail.com" className="text-green-400 hover:text-white transition-colors">team.tarotaros@gmail.com</a>
+            </p>
+            <div className="h-px w-32 bg-white/10 mx-auto my-4"></div>
             <p className="text-xs text-gray-700 mb-2 tracking-[0.2em] font-black">
               © 2025 TAROTAROS
             </p>

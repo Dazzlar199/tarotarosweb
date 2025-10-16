@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { notFound, useParams } from 'next/navigation';
 import { teamMembers } from '@/data/team';
 import { useLanguage } from '@/contexts/LanguageContext';
@@ -34,8 +35,18 @@ export default function MemberPage() {
         <div className="cosmic-card p-10 md:p-14 mb-8">
           <div className="flex flex-col md:flex-row items-center gap-10">
             {/* 프로필 이미지 */}
-            <div className="w-40 h-40 bg-gradient-to-br from-green-500 to-green-600 flex items-center justify-center text-7xl font-black text-black flex-shrink-0">
-              {member.name.charAt(0)}
+            <div className="w-40 h-40 bg-gradient-to-br from-green-500 to-green-600 flex items-center justify-center text-7xl font-black text-black flex-shrink-0 overflow-hidden relative">
+              {member.image ? (
+                <Image
+                  src={member.image}
+                  alt={member.name}
+                  width={160}
+                  height={160}
+                  className="w-full h-full object-cover"
+                />
+              ) : (
+                <span>{member.name.charAt(0)}</span>
+              )}
             </div>
 
             {/* 기본 정보 */}
@@ -84,18 +95,7 @@ export default function MemberPage() {
               {member.portfolio.map((item, index) => (
                 <div key={index} className="p-8 bg-black border-2 border-white/10">
                   <h3 className="text-xl font-black text-green-400 mb-3 tracking-tight">{item.title}</h3>
-                  <p className="text-gray-500 mb-6 text-sm font-normal">{item.description}</p>
-                  {item.link && (
-                    <a
-                      href={item.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 text-white hover:text-green-400 transition-colors font-black text-xs tracking-widest"
-                    >
-                      <span>VIEW</span>
-                      <span>→</span>
-                    </a>
-                  )}
+                  <p className="text-gray-500 text-sm font-normal">{item.description}</p>
                 </div>
               ))}
             </div>
@@ -123,8 +123,18 @@ export default function MemberPage() {
                   href={`/member/${otherMember.id}`}
                   className="p-6 bg-black border-2 border-white/10 hover:border-green-500 transition-all text-center"
                 >
-                  <div className="w-16 h-16 mx-auto mb-3 bg-gradient-to-br from-green-500 to-green-600 flex items-center justify-center text-2xl font-black text-black">
-                    {otherMember.name.charAt(0)}
+                  <div className="w-16 h-16 mx-auto mb-3 bg-gradient-to-br from-green-500 to-green-600 flex items-center justify-center text-2xl font-black text-black overflow-hidden relative">
+                    {otherMember.image ? (
+                      <Image
+                        src={otherMember.image}
+                        alt={otherMember.name}
+                        width={64}
+                        height={64}
+                        className="w-full h-full object-cover"
+                      />
+                    ) : (
+                      <span>{otherMember.name.charAt(0)}</span>
+                    )}
                   </div>
                   <p className="text-sm font-black text-white tracking-tight">
                     {language === 'ko' ? otherMember.name : otherMember.nameEn}
