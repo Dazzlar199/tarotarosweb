@@ -9,7 +9,7 @@ import Exhibition from '@/components/Exhibition';
 import LanguageToggle from '@/components/LanguageToggle';
 import FloatingContact from '@/components/FloatingContact';
 import SectionNav from '@/components/SectionNav';
-import { teamMembers } from '@/data/team';
+import { teamMembers, supportMembers } from '@/data/team';
 
 export default function Home() {
   return (
@@ -64,6 +64,22 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {teamMembers.map((member) => (
               <MemberCard key={member.id} member={member} />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Support Members Section */}
+      <section id="support-members" className="py-20 px-4">
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-5xl md:text-6xl font-black text-center mb-2">
+            <span className="text-green-400">SUPPORT</span>
+          </h2>
+          <p className="text-sm text-center text-gray-500 mb-16 tracking-widest">MEMBERS</p>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+            {supportMembers.map((member) => (
+              <MemberCard key={member.id} member={member} showDetail={false} />
             ))}
           </div>
         </div>

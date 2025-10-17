@@ -94,6 +94,32 @@ export const teamMembers: TeamMember[] = [
   }
 ];
 
+export const supportMembers: TeamMember[] = [
+  {
+    id: 'park-jeong-seok',
+    name: '박정석',
+    nameEn: 'Park Jeong Seok',
+    role: '개발 기술 지원',
+    roleEn: 'Contents Development',
+    skills: ['Unreal Engine Support', 'VR Tech Support'],
+    description: '개발 기술 지원',
+    descriptionEn: 'Contents Development Support',
+    image: '/images/park.png',
+    portfolio: []
+  },
+  {
+    id: 'kim-yu-chan',
+    name: '김유찬',
+    nameEn: 'Kim Yu Chan',
+    role: '아트 기술 지원',
+    roleEn: 'Art Tech Support',
+    skills: ['Unreal Engine Support', 'Art Tech Support'],
+    description: '아트 기술 지원',
+    descriptionEn: 'Art Tech Support',
+    portfolio: []
+  }
+];
+
 export const projectInfo = {
   title: 'GOD DOES NOT BLINK',
   subtitle: 'Cosmic Horror Dilemma VR',

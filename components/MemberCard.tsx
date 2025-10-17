@@ -4,14 +4,20 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { TeamMember } from '@/data/team';
 import { useLanguage } from '@/contexts/LanguageContext';
-import { memo } from 'react';
+import { memo, useState, useEffect } from 'react';
 
 interface MemberCardProps {
   member: TeamMember;
+  showDetail?: boolean;
 }
 
-const MemberCard = memo(function MemberCard({ member }: MemberCardProps) {
+const MemberCard = memo(function MemberCard({ member, showDetail = true }: MemberCardProps) {
   const { language } = useLanguage();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   // 김찬주는 카카오톡 버튼 추가
   const isKimChanJoo = member.id === 'kim-chan-joo';
@@ -22,6 +28,55 @@ const MemberCard = memo(function MemberCard({ member }: MemberCardProps) {
     window.open('http://pf.kakao.com/_gxgbxcn/friend', '_blank', 'noopener,noreferrer');
   };
 
+  const currentLang = mounted ? language : 'ko';
+
+  if (!showDetail) {
+    return (
+      <div className="cosmic-card p-8 h-full">
+        {/* 프로필 이미지 영역 */}
+        <div className="w-24 h-24 mx-auto mb-6 bg-gradient-to-br from-green-500 to-green-600 flex items-center justify-center text-4xl font-black text-black overflow-hidden relative">
+          {member.image ? (
+            <Image
+              src={member.image}
+              alt={member.name}
+              width={96}
+              height={96}
+              className="w-full h-full object-cover"
+            />
+          ) : (
+            <span>{member.name.charAt(0)}</span>
+          )}
+        </div>
+
+        {/* 이름 */}
+        <h3 className="text-2xl font-black text-center mb-2 tracking-tight">
+          {currentLang === 'ko' ? member.name : member.nameEn}
+        </h3>
+        <p className="text-sm text-gray-500 text-center mb-6 tracking-wider">
+          {currentLang === 'ko' ? member.nameEn : member.name}
+        </p>
+
+        {/* 역할 */}
+        <div className="text-center mb-6">
+          <span className="inline-block px-4 py-2 bg-black border border-white/20 text-white font-bold text-xs tracking-wider">
+            {currentLang === 'ko' ? member.role : member.roleEn}
+          </span>
+        </div>
+
+        {/* 스킬 태그 */}
+        <div className="flex flex-wrap gap-2 justify-center">
+          {member.skills.map((skill, index) => (
+            <span
+              key={index}
+              className="px-3 py-1 bg-black border border-green-500/30 text-green-400 text-xs font-bold tracking-wide"
+            >
+              {skill}
+            </span>
+          ))}
+        </div>
+      </div>
+    );
+  }
 
   return (
     <Link href={`/member/${member.id}`}>
@@ -42,17 +97,17 @@ const MemberCard = memo(function MemberCard({ member }: MemberCardProps) {
         </div>
 
         {/* 이름 */}
-        <h3 className="text-2xl font-black text-center mb-2 group-hover:text-green-400 transition-colors tracking-tight" suppressHydrationWarning>
-          {language === 'ko' ? member.name : member.nameEn}
+        <h3 className="text-2xl font-black text-center mb-2 group-hover:text-green-400 transition-colors tracking-tight">
+          {currentLang === 'ko' ? member.name : member.nameEn}
         </h3>
-        <p className="text-sm text-gray-500 text-center mb-6 tracking-wider" suppressHydrationWarning>
-          {language === 'ko' ? member.nameEn : member.name}
+        <p className="text-sm text-gray-500 text-center mb-6 tracking-wider">
+          {currentLang === 'ko' ? member.nameEn : member.name}
         </p>
 
         {/* 역할 */}
         <div className="text-center mb-6">
-          <span className="inline-block px-4 py-2 bg-black border border-white/20 text-white font-bold text-xs tracking-wider" suppressHydrationWarning>
-            {language === 'ko' ? member.role : member.roleEn}
+          <span className="inline-block px-4 py-2 bg-black border border-white/20 text-white font-bold text-xs tracking-wider">
+            {currentLang === 'ko' ? member.role : member.roleEn}
           </span>
         </div>
 
@@ -85,8 +140,8 @@ const MemberCard = memo(function MemberCard({ member }: MemberCardProps) {
         </div>
 
         {/* 설명 */}
-        <p className="text-gray-500 text-xs text-center line-clamp-2 font-normal" suppressHydrationWarning>
-          {language === 'ko' ? member.description : member.descriptionEn}
+        <p className="text-gray-500 text-xs text-center line-clamp-2 font-normal">
+          {currentLang === 'ko' ? member.description : member.descriptionEn}
         </p>
 
         {/* 김찬주 카카오톡 버튼 */}
