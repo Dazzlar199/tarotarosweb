@@ -4,7 +4,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { TeamMember } from '@/data/team';
 import { useLanguage } from '@/contexts/LanguageContext';
-import { memo, useState, useEffect } from 'react';
+import { memo } from 'react';
 
 interface MemberCardProps {
   member: TeamMember;
@@ -13,11 +13,6 @@ interface MemberCardProps {
 
 const MemberCard = memo(function MemberCard({ member, showDetail = true }: MemberCardProps) {
   const { language } = useLanguage();
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
 
   // 김찬주는 카카오톡 버튼 추가
   const isKimChanJoo = member.id === 'kim-chan-joo';
@@ -27,8 +22,6 @@ const MemberCard = memo(function MemberCard({ member, showDetail = true }: Membe
     e.stopPropagation();
     window.open('http://pf.kakao.com/_gxgbxcn/friend', '_blank', 'noopener,noreferrer');
   };
-
-  const currentLang = mounted ? language : 'ko';
 
   if (!showDetail) {
     return (
@@ -50,16 +43,16 @@ const MemberCard = memo(function MemberCard({ member, showDetail = true }: Membe
 
         {/* 이름 */}
         <h3 className="text-2xl font-black text-center mb-2 tracking-tight">
-          {currentLang === 'ko' ? member.name : member.nameEn}
+          {language === 'ko' ? member.name : member.nameEn}
         </h3>
         <p className="text-sm text-gray-500 text-center mb-6 tracking-wider">
-          {currentLang === 'ko' ? member.nameEn : member.name}
+          {language === 'ko' ? member.nameEn : member.name}
         </p>
 
         {/* 역할 */}
         <div className="text-center mb-6">
           <span className="inline-block px-4 py-2 bg-black border border-white/20 text-white font-bold text-xs tracking-wider">
-            {currentLang === 'ko' ? member.role : member.roleEn}
+            {language === 'ko' ? member.role : member.roleEn}
           </span>
         </div>
 
@@ -98,16 +91,16 @@ const MemberCard = memo(function MemberCard({ member, showDetail = true }: Membe
 
         {/* 이름 */}
         <h3 className="text-2xl font-black text-center mb-2 group-hover:text-green-400 transition-colors tracking-tight">
-          {currentLang === 'ko' ? member.name : member.nameEn}
+          {language === 'ko' ? member.name : member.nameEn}
         </h3>
         <p className="text-sm text-gray-500 text-center mb-6 tracking-wider">
-          {currentLang === 'ko' ? member.nameEn : member.name}
+          {language === 'ko' ? member.nameEn : member.name}
         </p>
 
         {/* 역할 */}
         <div className="text-center mb-6">
           <span className="inline-block px-4 py-2 bg-black border border-white/20 text-white font-bold text-xs tracking-wider">
-            {currentLang === 'ko' ? member.role : member.roleEn}
+            {language === 'ko' ? member.role : member.roleEn}
           </span>
         </div>
 
@@ -141,7 +134,7 @@ const MemberCard = memo(function MemberCard({ member, showDetail = true }: Membe
 
         {/* 설명 */}
         <p className="text-gray-500 text-xs text-center line-clamp-2 font-normal">
-          {currentLang === 'ko' ? member.description : member.descriptionEn}
+          {language === 'ko' ? member.description : member.descriptionEn}
         </p>
 
         {/* 김찬주 카카오톡 버튼 */}
