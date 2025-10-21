@@ -148,12 +148,12 @@ export default function Home() {
             {/* New Contents 로고 */}
             <div className="flex items-center justify-center">
               <Image
-                src="/images/newcontents.png"
+                src="/images/newcontents_2.png"
                 alt="New Contents"
-                width={200}
-                height={80}
+                width={150}
+                height={60}
                 loading="lazy"
-                sizes="(max-width: 768px) 150px, 200px"
+                sizes="(max-width: 768px) 100px, 150px"
                 className="object-contain"
               />
             </div>
