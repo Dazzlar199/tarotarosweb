@@ -3,7 +3,9 @@
 import { useLanguage } from '@/contexts/LanguageContext';
 
 export default function LanguageToggle() {
-  const { language, toggleLanguage } = useLanguage();
+  const { language, toggleLanguage, mounted } = useLanguage();
+
+  if (!mounted) return null;
 
   return (
     <button

@@ -9,7 +9,7 @@ export default function TeamIntro() {
   const [copied, setCopied] = useState(false);
 
   const copyEmail = () => {
-    navigator.clipboard.writeText('tarotaros.team@gmail.com');
+    navigator.clipboard.writeText('team.tarotaros@gmail.com');
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   };
@@ -41,17 +41,17 @@ export default function TeamIntro() {
             className="cosmic-card px-8 py-4 hover:border-green-500/60 transition-all cursor-pointer"
           >
             <span className="text-sm text-gray-300 tracking-wide">
-              {copied ? (language === 'ko' ? '복사됨!' : 'Copied!') : 'tarotaros.team@gmail.com'}
+              {copied ? (language === 'ko' ? '복사됨!' : 'Copied!') : 'team.tarotaros@gmail.com'}
             </span>
           </button>
           <a
-            href="https://www.instagram.com/tarotaros.official"
+            href="https://www.instagram.com/team_tarotaros"
             target="_blank"
             rel="noopener noreferrer"
             className="cosmic-card px-8 py-4 hover:border-green-500/60 transition-all"
           >
             <span className="text-sm text-gray-300 tracking-wide">
-              @tarotaros.official
+              @team_tarotaros
             </span>
           </a>
         </div>

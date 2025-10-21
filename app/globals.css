@@ -36,7 +36,7 @@ body {
   overflow-x: hidden;
   touch-action: pan-y;
   -webkit-overflow-scrolling: touch;
-  scroll-snap-type: y mandatory;
+  scroll-snap-type: y proximity;
 }
 
 /* 스크롤바 스타일링 */
@@ -277,10 +277,13 @@ section {
 }
 
 /* 섹션 래퍼 스냅 */
-#hero, #project, #gallery, #roadmap, #team-intro, #exhibition, #members {
+#hero, #project, #gallery, #user-review, #roadmap, #team-intro, #exhibition, #members {
   scroll-snap-align: start;
-  scroll-snap-stop: always;
+  scroll-snap-stop: normal;
   scroll-margin-top: 0;
+  will-change: scroll-position;
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
 }
 
 /* 세로 슬라이더 스타일 */

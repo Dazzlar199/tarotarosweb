@@ -9,12 +9,12 @@ export default function FloatingContact() {
 
   const handleEmailClick = () => {
     // 이메일 클라이언트(Gmail 앱 포함)를 열어서 타로타로스 이메일이 수신자로 자동 입력됨
-    window.location.href = 'mailto:tarotaros.team@gmail.com?subject=TAROTAROS 문의';
+    window.location.href = 'mailto:team.tarotaros@gmail.com?subject=TAROTAROS 문의';
   };
 
   const handleInstagramClick = () => {
-    // 인스타그램 앱이 설치되어 있으면 앱으로, 없으면 웹으로 DM 창이 열림
-    window.open('https://ig.me/m/tarotaros.official', '_blank', 'noopener,noreferrer');
+    // 인스타그램 앱이 설치되어 있으면 앱으로, 없으면 웹으로 열림
+    window.open('https://www.instagram.com/team_tarotaros', '_blank', 'noopener,noreferrer');
   };
 
   return (

@@ -7,6 +7,7 @@ const sections = [
   { id: 'hero', nameKo: '메인', nameEn: 'HERO' },
   { id: 'project', nameKo: '프로젝트', nameEn: 'PROJECT' },
   { id: 'gallery', nameKo: '콘텐츠', nameEn: 'CONTENTS' },
+  { id: 'user-review', nameKo: '리뷰', nameEn: 'REVIEW' },
   { id: 'roadmap', nameKo: '로드맵', nameEn: 'ROADMAP' },
   { id: 'team-intro', nameKo: '팀소개', nameEn: 'TEAM' },
   { id: 'exhibition', nameKo: '전시', nameEn: 'EXHIBITION' },
@@ -24,17 +25,24 @@ const SectionNav = memo(function SectionNav() {
 
   useEffect(() => {
     if (!mounted) return;
+
     const observer = new IntersectionObserver(
       (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setActiveSection(entry.target.id);
-          }
-        });
+        // 현재 보이는 섹션들 중 가장 위에 있는 것을 찾기
+        const visibleEntries = entries.filter(entry => entry.isIntersecting);
+
+        if (visibleEntries.length > 0) {
+          // 가장 위에 있는 섹션 찾기
+          const topEntry = visibleEntries.reduce((prev, current) => {
+            return prev.boundingClientRect.top < current.boundingClientRect.top ? prev : current;
+          });
+
+          setActiveSection(topEntry.target.id);
+        }
       },
       {
-        threshold: 0.1,
-        rootMargin: '-10% 0px -70% 0px'
+        threshold: [0, 0.1, 0.2, 0.5],
+        rootMargin: '-20% 0px -60% 0px'
       }
     );
 

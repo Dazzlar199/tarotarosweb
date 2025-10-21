@@ -30,7 +30,7 @@ export const teamMembers: TeamMember[] = [
   {
     id: 'lee-ji-yeong',
     name: '이지영',
-    nameEn: 'Lee Ji Yeong',
+    nameEn: 'Lee Ji Young',
     role: '아트 디렉터',
     roleEn: 'Art Director',
     skills: ['Concept Design', 'Level Design', '3D Animation'],
@@ -116,6 +116,31 @@ export const supportMembers: TeamMember[] = [
     skills: ['Unreal Engine Support', 'Art Tech Support'],
     description: '아트 기술 지원',
     descriptionEn: 'Art Tech Support',
+    portfolio: []
+  }
+];
+
+export const supervisors: TeamMember[] = [
+  {
+    id: 'jeon-woo-yeol',
+    name: '전우열',
+    nameEn: 'Jeon Woo Yeol',
+    role: 'VENTA VR CEO',
+    roleEn: 'VENTA VR CEO',
+    skills: ['VR Production', 'Business Strategy'],
+    description: '',
+    descriptionEn: '',
+    portfolio: []
+  },
+  {
+    id: 'kim-su-ok',
+    name: '김수옥',
+    nameEn: 'Kim Su Ok',
+    role: 'Art Advisory',
+    roleEn: 'Art Advisory',
+    skills: ['Art Direction', 'Creative Consulting'],
+    description: '',
+    descriptionEn: '',
     portfolio: []
   }
 ];

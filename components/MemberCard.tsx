@@ -133,9 +133,11 @@ const MemberCard = memo(function MemberCard({ member, showDetail = true }: Membe
         </div>
 
         {/* 설명 */}
-        <p className="text-gray-500 text-xs text-center line-clamp-2 font-normal">
-          {language === 'ko' ? member.description : member.descriptionEn}
-        </p>
+        {(member.description || member.descriptionEn) && (
+          <p className="text-gray-500 text-xs text-center line-clamp-2 font-normal">
+            {language === 'ko' ? member.description : member.descriptionEn}
+          </p>
+        )}
 
         {/* 김찬주 카카오톡 버튼 */}
         {isKimChanJoo && (
@@ -151,12 +153,14 @@ const MemberCard = memo(function MemberCard({ member, showDetail = true }: Membe
           </div>
         )}
 
-        {/* 더보기 인디케이터 */}
-        <div className="mt-8 text-center">
-          <span className="text-green-400 text-xs font-black tracking-widest group-hover:text-white transition-colors">
-            VIEW →
-          </span>
-        </div>
+        {/* 더보기 인디케이터 - portfolio가 있을 때만 표시 */}
+        {member.portfolio && member.portfolio.length > 0 && (
+          <div className="mt-8 text-center">
+            <span className="text-green-400 text-xs font-black tracking-widest group-hover:text-white transition-colors">
+              VIEW →
+            </span>
+          </div>
+        )}
       </div>
     </Link>
   );
