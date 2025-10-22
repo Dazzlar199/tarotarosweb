@@ -7,7 +7,7 @@ export default function ProjectInfo() {
   const { language } = useLanguage();
 
   return (
-    <section className="py-20 px-4">
+    <section className="py-20 px-4 overflow-hidden">
       <div className="max-w-5xl mx-auto">
         <h2 className="text-5xl md:text-6xl font-black text-center mb-2">
           <span className="neon-green">PROJECT</span>

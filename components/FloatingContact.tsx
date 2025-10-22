@@ -27,10 +27,10 @@ export default function FloatingContact() {
         />
       )}
 
-      <div className="fixed bottom-6 right-6 md:bottom-8 md:right-8 z-50">
+      <div className="fixed bottom-20 right-6 md:bottom-8 md:right-8 lg:bottom-8 z-50">
         {/* 연락 옵션 메뉴 */}
         {isOpen && (
-          <div className="absolute bottom-20 right-0 flex flex-col gap-2 mb-2 animate-fadeIn">
+          <div className="absolute bottom-16 right-0 flex flex-col gap-2 mb-2 animate-fadeIn">
             {/* 이메일 버튼 */}
             <button
               onClick={handleEmailClick}

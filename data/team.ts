@@ -22,10 +22,17 @@ export const teamMembers: TeamMember[] = [
     nameEn: 'Kim So Hee',
     role: '팀 리더 / 디렉터',
     roleEn: 'Team Leader / Director',
-    skills: ['Content Planning', 'Team Management', 'Project Direction'],
+    skills: ['Content Planning', 'Team Management', 'Theater Directing', 'AI Video'],
     description: '프로젝트의 전체적인 방향성을 설정하고 팀을 이끌어갑니다.',
     descriptionEn: 'Sets the overall direction of the project and leads the team.',
-    portfolio: []
+    image: '/images/sofie.png',
+    portfolio: [
+      {
+        title: 'GOD DOES NOT BLINK - VR 프로젝트',
+        description: '팀 리더 및 총괄 디렉팅',
+        link: ''
+      }
+    ]
   },
   {
     id: 'lee-ji-yeong',
@@ -42,12 +49,24 @@ export const teamMembers: TeamMember[] = [
     id: 'nam-da-sol',
     name: '남다솔',
     nameEn: 'Nam Da Sol',
-    role: '플래너 / 3D 모델러',
-    roleEn: 'Planner / 3D Modeler',
-    skills: ['Content Planning', 'Blender 3D Modeling', 'Asset Creation'],
-    description: '콘텐츠 기획과 3D 모델링 작업을 진행합니다.',
-    descriptionEn: 'Handles content planning and 3D modeling work.',
-    portfolio: []
+    role: '3D 아티스트 / 플래너',
+    roleEn: '3D Artist / Planner',
+    skills: ['3D Modeling', 'Character Animation', 'AR Exhibition Planning'],
+    description: '3D 모델링 및 캐릭터 애니메이션, AR 전시 기획을 담당합니다.',
+    descriptionEn: 'Responsible for 3D modeling, character animation, and AR exhibition planning.',
+    image: '/images/dasol.png',
+    portfolio: [
+      {
+        title: 'GOD DOES NOT BLINK - VR 제작',
+        description: 'Asset 3D Modeling 및 Character Animation 담당',
+        link: ''
+      },
+      {
+        title: '국가유산진흥원 - 실감형 디지털 문화유산 교육 콘텐츠',
+        description: '실감의궤(연향) 콘텐츠 AR전시 기획 및 운영',
+        link: ''
+      }
+    ]
   },
   {
     id: 'kim-chan-joo',

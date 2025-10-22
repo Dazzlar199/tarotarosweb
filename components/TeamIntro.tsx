@@ -15,7 +15,7 @@ export default function TeamIntro() {
   };
 
   return (
-    <section className="py-20 px-4">
+    <section className="py-20 px-4 overflow-hidden">
       <div className="max-w-6xl mx-auto text-center">
         {/* 로고 이미지 */}
         <div className="flex justify-center mb-12">

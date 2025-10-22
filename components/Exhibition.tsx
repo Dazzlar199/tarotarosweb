@@ -49,7 +49,7 @@ const Exhibition = memo(function Exhibition() {
   ], []);
 
   return (
-    <section className="py-20 px-4">
+    <section className="py-20 px-4 overflow-hidden">
       <div className="max-w-7xl mx-auto">
         <h2 className="text-5xl md:text-6xl font-black text-center mb-16">
           <span className="text-white">EXHIBITION</span>

@@ -54,7 +54,7 @@ export default function Home() {
       </div>
 
       {/* Team Members Grid */}
-      <section id="members" className="py-20 px-4">
+      <section id="members" className="py-20 px-4 overflow-hidden">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-5xl md:text-6xl font-black text-center mb-2">
             <span className="text-white">TEAM</span>
@@ -70,7 +70,7 @@ export default function Home() {
       </section>
 
       {/* Support Members Section */}
-      <section id="support-members" className="py-20 px-4">
+      <section id="support-members" className="py-20 px-4 overflow-hidden">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-5xl md:text-6xl font-black text-center mb-2">
             <span className="text-green-400">SUPPORT</span>
@@ -86,7 +86,7 @@ export default function Home() {
       </section>
 
       {/* Supervisor Section */}
-      <section className="py-20 px-4">
+      <section className="py-20 px-4 overflow-hidden">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-5xl md:text-6xl font-black text-center mb-2">
             <span className="text-green-400">SUPERVISOR</span>
@@ -154,6 +154,19 @@ export default function Home() {
                 height={60}
                 loading="lazy"
                 sizes="(max-width: 768px) 100px, 150px"
+                className="object-contain"
+              />
+            </div>
+
+            {/* APEC 2025 Korea 로고 */}
+            <div className="flex items-center justify-center">
+              <Image
+                src="/images/APEC_2025_Korea_emblem-removebg-preview.png"
+                alt="APEC 2025 Korea"
+                width={220}
+                height={88}
+                loading="lazy"
+                sizes="(max-width: 768px) 170px, 220px"
                 className="object-contain"
               />
             </div>
