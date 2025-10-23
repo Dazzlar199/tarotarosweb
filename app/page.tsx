@@ -23,6 +23,22 @@ export default function Home() {
       {/* Section Navigation */}
       <SectionNav />
 
+      {/* QR Code Banner */}
+      <div className="w-full bg-gradient-to-r from-black via-gray-900 to-black py-4 px-4 border-b-2 border-green-400/20">
+        <div className="max-w-7xl mx-auto flex justify-start md:justify-center">
+          <div className="relative">
+            <Image
+              src="/images/qr.jpg"
+              alt="QR Code"
+              width={100}
+              height={100}
+              priority
+              className="rounded-lg shadow-2xl shadow-green-400/20 border-2 border-green-400/30"
+            />
+          </div>
+        </div>
+      </div>
+
       {/* Hero Section */}
       <div id="hero">
         <Hero />
